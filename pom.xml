@@ -18,5 +18,6 @@
   <modules>
     <module>optimus-prime</module>
     <module>megatron</module>
+    <module>gears</module>
   </modules>
 </project>

@@ -1,4 +1,4 @@
-package org.transformers.megatron;
+package org.transformers.gears;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    private final String name="Megatron";
-    private final String allegiance="Decepticon";
+    private final String name="Gears";
+    private final String allegiance="Autobot";
     @Value("${transformer.mode:disguised}")
     private String mode;
 
-    @Value("${transformer.disguised:GUN}")
+    @Value("${transformer.disguised:PICKUPTRUCK}")
     private String disguised;
 
     @Value("${transformer.robot:ROBOT}")
