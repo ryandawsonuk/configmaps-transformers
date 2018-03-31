@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.transformers</groupId>
-	<artifactId>optimus-prime</artifactId>
+	<artifactId>megatron</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>optimus-prime</name>
-	<description>Optimus Prime</description>
+	<name>megatron</name>
+	<description>Megatron</description>
 
 	<parent>
 		<groupId>org.transformers</groupId>

@@ -17,5 +17,6 @@
   <description>ConfigMaps Intro</description>
   <modules>
     <module>optimus-prime</module>
+    <module>megatron</module>
   </modules>
 </project>
