@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: decepticons-config
+  namespace: default
+data:
+  transformer.mode: disguised

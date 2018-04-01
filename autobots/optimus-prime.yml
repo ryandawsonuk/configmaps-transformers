@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: optimus-prime
+  labels:
+    serviceType: optimus-prime
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: optimus-prime
+      labels:
+        serviceType: optimus-prime
+    spec:
+      containers:
+        - name: optimus-prime
+          image: transformers/optimus-prime:latest
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8080
+          env:
+          - name: JAVA_OPTS
+            value: -Xmx64m -Xms64m
+          - name: SPRING_APPLICATION_NAME
+            value: "optimus-prime"
+          - name: TRANSFORMER_MODE
+            valueFrom:
+              configMapKeyRef:
+                name: autobots-config
+                key: transformer.mode
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: optimus-prime-entrypoint
+  namespace: default
+spec:
+  selector:
+    serviceType: optimus-prime
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort

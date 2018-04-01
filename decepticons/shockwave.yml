@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: shockwave
+  labels:
+    serviceType: shockwave
+spec:
+  replicas: 1
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: shockwave
+      labels:
+        serviceType: shockwave
+    spec:
+      containers:
+        - name: shockwave
+          image: transformers/shockwave:latest
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8080
+          env:
+          - name: JAVA_OPTS
+            value: -Xmx64m -Xms64m
+          - name: SPRING_APPLICATION_NAME
+            value: "shockwave"
+          - name: TRANSFORMER_MODE
+            valueFrom:
+              configMapKeyRef:
+                name: decepticons-config
+                key: transformer.mode
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shockwave-entrypoint
+  namespace: default
+spec:
+  selector:
+    serviceType: shockwave
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30083
+  type: NodePort
