@@ -52,8 +52,8 @@ Do `minikube dashboard` to open the dashboard in the browser, go to 'Config Maps
 
 Edit the .yml files for each transformer in the autobots and decepticons directories to point to v2 of the config. Then do:
 
-`kubectl apply -f autobots`<br />
-`kubectl apply -f decepticons`<br />
+`kubectl apply -f autobots --record`<br />
+`kubectl apply -f decepticons --record`<br />
 
 
 ### Remove and Stop
