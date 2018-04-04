@@ -10,6 +10,8 @@ Docker (https://docs.docker.com/install/) and minikube (https://kubernetes.io/do
 
 ## How to Run
 
+### First Deploy 
+
 Start minikube:
  
 `minikube start --memory 4000 --cpus 3`
@@ -21,23 +23,40 @@ Build images for Transformers - from this directory run
 
 Deploy the Autobots (their ConfigMap has them as in robot mode)
  
-`kubectl create -f autobots`
+`kubectl create -f autobots --save-config`
 
 To see the autobots: 
 
-`open http://$(minikube ip):30080` <br/>
-`open http://$(minikube ip):30081` <br/>
+`minikube service optimus-prime-entrypoint` <br/>
+`minikube service gears-entrypoint` <br/>
 
 Deploy the Decepticons (their ConfigMap has them disguised)
  
-`kubectl create -f decepticons`
+`kubectl create -f decepticons --save-config`
 
-`open http://$(minikube ip):30082` <br/>
-`open http://$(minikube ip):30083` <br/>
+`minikube service megatron-entrypoint` <br/>
+`minikube service shockwave-entrypoint` <br/>
 
-To see all Transformers
+### Changing Config
 
-`kubectl get pods`
+To change config there are options.
+
+##### Option 1 - Change with small downtime
+
+Do `minikube dashboard` to open the dashboard in the browser, go to 'Config Maps' under 'Config and Storage' and e.g. change the Decepticons to 'robot'. Then do:
+
+`kubectl scale deployment/megatron --replicas=0;`<br />
+`kubectl scale deployment/megatron --replicas=1;`<br />
+
+##### Option 2 - Change with no downtime
+
+Edit the .yml files for each transformer in the autobots and decepticons directories to point to v2 of the config. Then do:
+
+`kubectl apply -f autobots`<br />
+`kubectl apply -f decepticons`<br />
+
+
+### Remove and Stop
 
 To remove:
 
