@@ -22,10 +22,10 @@ And open them with:
 
 Transform them with:
 
-`helm upgrade optimus1 --set transformer.mode=robot --set transformer.mode=robot,transformer.name=optimus-prime,image.repository=transformers/optimus-prime,service.port=30080 --recreate-pods ./transformer/` <br/>
-`helm upgrade gears1 --set transformer.mode=robot --set transformer.mode=robot,transformer.name=gears,image.repository=transformers/gears,service.port=30081 --recreate-pods ./transformer/` <br/>
-`helm upgrade megatron1 --set transformer.mode=robot --set transformer.mode=robot,transformer.name=megatron,image.repository=transformers/megatron,service.port=30082 --recreate-pods ./transformer/` <br/>
-`helm upgrade shockwave1 --set transformer.mode=robot --set transformer.mode=robot,transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083 --recreate-pods ./transformer/` <br/>
+`helm upgrade optimus1 --set transformer.mode=robot,transformer.name=optimus-prime,image.repository=transformers/optimus-prime,service.port=30080 --recreate-pods ./transformer/` <br/>
+`helm upgrade gears1 --set transformer.mode=robot,transformer.name=gears,image.repository=transformers/gears,service.port=30081 --recreate-pods ./transformer/` <br/>
+`helm upgrade megatron1 --set transformer.mode=robot,transformer.name=megatron,image.repository=transformers/megatron,service.port=30082 --recreate-pods ./transformer/` <br/>
+`helm upgrade shockwave1 --set transformer.mode=robot,transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083 --recreate-pods ./transformer/` <br/>
 
 Note this takes a little time but if you refresh browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
 

@@ -31,7 +31,7 @@ spec:
           - name: JAVA_OPTS
             value: -Xmx64m -Xms64m
           - name: SPRING_APPLICATION_NAME
-            value: {{ template "transformer.name" . }}
+            value: "{{ .Values.transformer.name }}"
           - name: TRANSFORMER_MODE
             value: "{{ .Values.transformer.mode }}"
           livenessProbe:
