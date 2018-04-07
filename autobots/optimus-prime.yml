@@ -7,7 +7,7 @@ metadata:
     serviceType: optimus-prime
 spec:
   replicas: 2
-  minReadySeconds: 10
+  minReadySeconds: 40
   strategy:
     type: RollingUpdate
     rollingUpdate:
