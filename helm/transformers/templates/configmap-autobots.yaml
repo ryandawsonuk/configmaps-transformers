@@ -1,3 +1,4 @@
+{{ if (.Values.tags.autobots) and eq .Values.tags.autobots "true" }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,4 +9,5 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     app: {{ template "transformers.name" . }}
 data:
-  transformer.mode: robot
+  transformer.mode: {{ .Values.autobots.mode }}
+{{ end }}

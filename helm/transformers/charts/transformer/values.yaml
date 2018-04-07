@@ -16,6 +16,7 @@ service:
 transformer:
   mode: disguised
   name: optimus-prime
+  allegiance: autobot
 
 ingress:
   enabled: false

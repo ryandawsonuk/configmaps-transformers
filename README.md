@@ -8,7 +8,7 @@ To demonstrate ConfigMaps by swithing Transfomer services between 'disguised' an
 
 Docker (https://docs.docker.com/install/) and minikube (https://kubernetes.io/docs/tasks/tools/install-minikube/) installed.
 
-## How to Run
+## How to Run - kubectl
 
 ### First Deploy 
 
@@ -55,7 +55,6 @@ Edit the .yml files for each transformer in the autobots and decepticons directo
 `kubectl apply -f autobots --record`<br />
 `kubectl apply -f decepticons --record`<br />
 
-
 ### Remove and Stop
 
 To remove:
@@ -64,3 +63,8 @@ To remove:
 `kubectl delete -f decepticons` <br/>
 
 Stop minikube with `minikube stop`
+
+
+## How to Run - Helm
+
+See the helm directory for instructions

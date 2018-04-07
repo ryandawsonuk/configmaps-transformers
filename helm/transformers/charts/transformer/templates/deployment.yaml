@@ -33,7 +33,10 @@ spec:
           - name: SPRING_APPLICATION_NAME
             value: "{{ .Values.transformer.name }}"
           - name: TRANSFORMER_MODE
-            value: "{{ .Values.transformer.mode }}"
+            valueFrom:
+              configMapKeyRef:
+                name: "{{ .Release.Name }}-{{ .Values.transformer.allegiance }}-config"
+                key: transformer.mode
           livenessProbe:
             httpGet:
               path: /

@@ -2,7 +2,7 @@
 
 ## Helm
 
-This directory shows how to deploy the transformers using helm (https://docs.helm.sh/).
+This directory shows how to deploy the transformers using helm (https://docs.helm.sh/). Tested with helm v2.8.2 (note that 2.8.0 was affected by https://github.com/kubernetes/helm/issues/3372)
 
 ## How to Run
 
@@ -19,9 +19,9 @@ And open them with:
 
 Transform them with:
 
-`helm upgrade transformers1 --set optimusprime.transformer.mode=disguised,gears.transformer.mode=disguised,megatron.transformer.mode=robot,shockwave.transformer.mode=robot --recreate-pods ./transformers/` <br/>
+`helm upgrade transformers1 --recreate-pods --set autobots.mode=disguised,decepticons.mode=robot ./transformers/` <br/>
 
-Note this takes a little while but if you refresh browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
+Note this takes a little while but if you refresh your browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
 
 And delete with:
 
