@@ -6,32 +6,23 @@ This directory shows how to deploy the transformers using helm (https://docs.hel
 
 ## How to Run
 
-Provided we've already built the docker images for minikube (see parent README) we can install install all four to minikube with:
+Provided we've already built the docker images for minikube (see parent README) we can install install all the transformers to minikube from this directory with:
 
-`helm install ./transformer/ --name=optimus1 --set transformer.name=optimus-prime,image.repository=transformers/optimus-prime,service.port=30080` <br/>
-`helm install ./transformer/ --name=gears1 --set transformer.name=gears,image.repository=transformers/gears,service.port=30081` <br/>
-`helm install ./transformer/ --name=megatron1 --set transformer.name=megatron,image.repository=transformers/megatron,service.port=30082` <br/>
-`helm install ./transformer/ --name=shockwave1 --set transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083` <br/>
+`helm install --name=transformers1 ./transformers/`
 
 And open them with:
 
-`minikube service optimus1-transformer`<br/>
-`minikube service gears1-transformer`<br/>
-`minikube service megatron1-transformer`<br/>
-`minikube service shockwave1-transformer`<br/>
+`minikube service transformers1-optimusprime`<br/>
+`minikube service transformers1-gears`<br/>
+`minikube service transformers1-megatron`<br/>
+`minikube service transformers1-shockwave`<br/>
 
 Transform them with:
 
-`helm upgrade optimus1 --set transformer.mode=robot,transformer.name=optimus-prime,image.repository=transformers/optimus-prime,service.port=30080 --recreate-pods ./transformer/` <br/>
-`helm upgrade gears1 --set transformer.mode=robot,transformer.name=gears,image.repository=transformers/gears,service.port=30081 --recreate-pods ./transformer/` <br/>
-`helm upgrade megatron1 --set transformer.mode=robot,transformer.name=megatron,image.repository=transformers/megatron,service.port=30082 --recreate-pods ./transformer/` <br/>
-`helm upgrade shockwave1 --set transformer.mode=robot,transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083 --recreate-pods ./transformer/` <br/>
+`helm upgrade transformers1 --set optimusprime.transformer.mode=disguised,gears.transformer.mode=disguised,megatron.transformer.mode=robot,shockwave.transformer.mode=robot --recreate-pods ./transformers/` <br/>
 
-Note this takes a little time but if you refresh browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
+Note this takes a little while but if you refresh browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
 
 And delete with:
 
-`helm del --purge optimus1`<br/>
-`helm del --purge gears1`<br/>
-`helm del --purge megatron1`<br/>
-`helm del --purge shockwave1`<br/>
+`helm del --purge transformers1`
