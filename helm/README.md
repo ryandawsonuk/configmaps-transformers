@@ -13,7 +13,7 @@ Provided we've already built the docker images for minikube (see parent README) 
 `helm install ./transformer/ --name=megatron1 --set transformer.name=megatron,image.repository=transformers/megatron,service.port=30082` <br/>
 `helm install ./transformer/ --name=shockwave1 --set transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083` <br/>
 
-And open them with:
+And open them with (note here all default to disguised):
 
 `minikube service optimus1-transformer`<br/>
 `minikube service gears1-transformer`<br/>

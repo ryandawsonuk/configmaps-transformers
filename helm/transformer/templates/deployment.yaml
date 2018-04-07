@@ -9,6 +9,12 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: {{ template "transformer.name" . }}
@@ -30,8 +36,6 @@ spec:
           env:
           - name: JAVA_OPTS
             value: -Xmx64m -Xms64m
-          - name: SPRING_APPLICATION_NAME
-            value: "{{ .Values.transformer.name }}"
           - name: TRANSFORMER_MODE
             value: "{{ .Values.transformer.mode }}"
           livenessProbe:

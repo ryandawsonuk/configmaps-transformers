@@ -6,7 +6,7 @@ metadata:
   labels:
     serviceType: optimus-prime
 spec:
-  replicas: 1
+  replicas: 2
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
@@ -28,8 +28,6 @@ spec:
           env:
           - name: JAVA_OPTS
             value: -Xmx64m -Xms64m
-          - name: SPRING_APPLICATION_NAME
-            value: "optimus-prime"
           - name: TRANSFORMER_MODE
             valueFrom:
               configMapKeyRef:
