@@ -7,12 +7,6 @@ metadata:
     serviceType: megatron
 spec:
   replicas: 1
-  minReadySeconds: 10
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
   template:
     metadata:
       name: megatron
@@ -28,8 +22,6 @@ spec:
           env:
           - name: JAVA_OPTS
             value: -Xmx64m -Xms64m
-          - name: SPRING_APPLICATION_NAME
-            value: "megatron"
           - name: TRANSFORMER_MODE
             valueFrom:
               configMapKeyRef:

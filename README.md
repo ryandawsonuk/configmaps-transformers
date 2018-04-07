@@ -55,6 +55,8 @@ Edit the .yml files for each transformer in the autobots and decepticons directo
 `kubectl apply -f autobots --record`<br />
 `kubectl apply -f decepticons --record`<br />
 
+Note it can take a while for the rolling update to be fully applied and also beware the browser cache.
+
 ### Remove and Stop
 
 To remove:
