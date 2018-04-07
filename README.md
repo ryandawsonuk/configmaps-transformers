@@ -46,7 +46,7 @@ To change config there are options.
 Do `minikube dashboard` to open the dashboard in the browser, go to 'Config Maps' under 'Config and Storage' and e.g. change the Decepticons to 'robot'. Then do:
 
 `kubectl scale deployment/megatron --replicas=0;`<br />
-`kubectl scale deployment/megatron --replicas=1;`<br />
+`kubectl scale deployment/megatron --replicas=2;`<br />
 
 ##### Option 2 - Change with no downtime
 
