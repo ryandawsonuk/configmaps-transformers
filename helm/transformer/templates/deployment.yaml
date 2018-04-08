@@ -9,7 +9,6 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  minReadySeconds: 60
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -40,14 +39,14 @@ spec:
             value: "{{ .Values.transformer.mode }}"
           livenessProbe:
             httpGet:
-              path: /
+              path: /actuator/health
               port: http
             initialDelaySeconds: 40
             timeoutSeconds: 1
             periodSeconds: 15
           readinessProbe:
             httpGet:
-              path: /
+              path: /actuator/health
               port: http
             initialDelaySeconds: 40
             timeoutSeconds: 1

@@ -7,7 +7,6 @@ metadata:
     serviceType: gears
 spec:
   replicas: 2
-  minReadySeconds: 40
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,7 +23,9 @@ spec:
           image: transformers/gears:latest
           imagePullPolicy: Never
           ports:
-          - containerPort: 8080
+            - name: http
+              containerPort: 8080
+              protocol: TCP
           env:
           - name: JAVA_OPTS
             value: -Xmx64m -Xms64m
@@ -33,6 +34,20 @@ spec:
               configMapKeyRef:
                 name: autobots-config
                 key: transformer.mode
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 40
+            timeoutSeconds: 1
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 40
+            timeoutSeconds: 1
+            periodSeconds: 15
 ---
 apiVersion: v1
 kind: Service

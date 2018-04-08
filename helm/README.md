@@ -27,7 +27,7 @@ Transform them with:
 `helm upgrade megatron1 --set transformer.mode=robot,transformer.name=megatron,image.repository=transformers/megatron,service.port=30082 --recreate-pods ./transformer/` <br/>
 `helm upgrade shockwave1 --set transformer.mode=robot,transformer.name=shockwave,image.repository=transformers/shockwave,service.port=30083 --recreate-pods ./transformer/` <br/>
 
-Note this takes a little time but if you refresh browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
+Note this takes a little time but if you refresh browser (preferably with private browsing - or run the four minikube service commands again)  in theory you should see it reflected without downtime (currently that's not guaranteed at the time of writing due to https://github.com/kubernetes/helm/issues/1702 and https://github.com/kubernetes/kubernetes/issues/55667).
 
 And delete with:
 

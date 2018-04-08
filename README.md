@@ -55,6 +55,7 @@ Edit the .yml files for each transformer in the autobots and decepticons directo
 `kubectl apply -f autobots --record`<br />
 `kubectl apply -f decepticons --record`<br />
 
+Note it can take a while for the rolling update to be fully applied and also beware the browser cache (and dep on your minikube version you may hit https://github.com/kubernetes/kubernetes/issues/55667).
 
 ### Remove and Stop
 
