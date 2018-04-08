@@ -44,14 +44,14 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 15
+            initialDelaySeconds: 40
             timeoutSeconds: 1
             periodSeconds: 15
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: http
-            initialDelaySeconds: 15
+            initialDelaySeconds: 40
             timeoutSeconds: 1
             periodSeconds: 15
           resources:
