@@ -21,7 +21,7 @@ Transform them with:
 
 `helm upgrade transformers1 --recreate-pods --set autobots.mode=disguised,decepticons.mode=robot ./transformers/` <br/>
 
-Note this takes a little while but if you refresh your browser (preferably with private browsing - or run the four minikube service commands again) you'll see it reflected without downtime.
+Note this takes a little while but if you refresh your browser (preferably with private browsing - or run the four minikube service commands again) in theory you should see it reflected without downtime (currently that's not guaranteed at the time of writing due to https://github.com/kubernetes/helm/issues/1702 and https://github.com/kubernetes/kubernetes/issues/55667).
 
 And delete with:
 
